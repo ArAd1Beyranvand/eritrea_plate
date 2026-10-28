@@ -75,7 +75,8 @@ abstract final class EritreaPlates {
         length: 5,
         spacing: max(
           0,
-          (_Layout.numberRight - _Layout.numberLeft) / 5 - 0.6 * 0.72 * _Layout.numberHeight,
+          (_Layout.numberRight - _Layout.numberLeft) / 5 -
+              0.6 * 0.72 * _Layout.numberHeight,
         ),
       ),
     ],
