@@ -1,5 +1,5 @@
 name: eritrea_plate
-description: "Eritrea's licence plates for the plate_core library — TODO one sentence: categories, colours, themes, alphabets, advisory validator."
+description: "Eritrea's licence plates for the plate_core library — categories, colours, themes, alphabets and an advisory validator."
 version: 0.1.0
 repository: https://github.com/ArAd1Beyranvand/eritrea_plate
 resolution: workspace
