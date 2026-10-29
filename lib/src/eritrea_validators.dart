@@ -1,5 +1,8 @@
 import 'package:plate_core/plate_core.dart';
 
+// TODO(py): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
+// TODO(ts): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
+// TODO(kt): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
 /// Judges `ER`, a digit in the disc and a five-digit number (`ER – 3  01860`).
 /// Only one reference plate exists, so the rules are its shape. Reports, never
 /// bars a keystroke.
