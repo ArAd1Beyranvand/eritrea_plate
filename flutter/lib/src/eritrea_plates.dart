@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
 
@@ -25,22 +23,17 @@ import 'eritrea_country.dart';
 /// The dash and the disc float clear of the plate edge, so they are a
 /// [PlateRule] and a [PlateBand] capsule, not sections.
 abstract final class _Layout {
-  static const double width = 520;
-  static const double height = 289;
+  static const double width = 520, height = 289;
 
-  static const double rowOneCentre = 73.9;
-  static const double rowOneBox = 147;
+  static const double rowOneCentre = 73.9, rowOneBox = 147;
 
-  static const double erCentre = 107.5;
-  static const double erWidth = 170;
+  static const double erCentre = 107.5, erWidth = 170;
 
   static const PlateBox dash = PlateBox(234.8, 65.2, 91.2, 13.8);
   static const PlateBox disc = PlateBox(393.8, 24.8, 98, 98);
   static const double discBox = 130;
 
-  static const double numberLeft = 22;
-  static const double numberRight = 492;
-  static const double numberTop = 125;
+  static const double numberLeft = 22, numberRight = 492, numberTop = 125;
   static const double numberHeight = 160;
 }
 
@@ -63,6 +56,7 @@ abstract final class EritreaPlates {
           _Layout.discBox,
         ),
         color: EritreaColors.white,
+        group: 'code',
       ),
       PlateSlot(
         alphabet: EritreaAlphabets.digits,
@@ -73,11 +67,11 @@ abstract final class EritreaPlates {
           _Layout.numberHeight,
         ),
         length: 5,
-        spacing: max(
-          0,
-          (_Layout.numberRight - _Layout.numberLeft) / 5 -
-              0.6 * 0.72 * _Layout.numberHeight,
+        spacing: plateRunSpacing(
+          (_Layout.numberRight - _Layout.numberLeft) / 5,
+          _Layout.numberHeight,
         ),
+        group: 'number',
       ),
     ],
     bands: <PlateBand>[
@@ -92,18 +86,14 @@ abstract final class EritreaPlates {
     labels: <PlateLabel>[
       PlateLabel(
         text: 'ER',
-        box: PlateBox(
-          _Layout.erCentre - _Layout.erWidth / 2,
-          _Layout.rowOneCentre - _Layout.rowOneBox / 2,
+        box: PlateBox.centered(
+          _Layout.erCentre,
+          _Layout.rowOneCentre,
           _Layout.erWidth,
           _Layout.rowOneBox,
         ),
         glyphHeight: _Layout.rowOneBox,
       ),
-    ],
-    textGroups: const <PlateTextGroup>[
-      PlateTextGroup(<int>[0], key: 'code'),
-      PlateTextGroup(<int>[1], key: 'number'),
     ],
   );
 }

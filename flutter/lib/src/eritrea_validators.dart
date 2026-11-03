@@ -1,28 +1,17 @@
 import 'package:plate_core/plate_core.dart';
 
-// TODO(py): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
-// TODO(ts): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
-// TODO(kt): [D4-code] hand-port; reason strings are the contract, keep them byte-identical.
 /// Judges `ER`, a digit in the disc and a five-digit number (`ER – 3  01860`).
 /// Only one reference plate exists, so the rules are its shape. Reports, never
 /// bars a keystroke.
-class EritreaValidator extends GatedPlateValidator {
+class EritreaValidator extends RuledPlateValidator {
   const EritreaValidator();
-
-  @override
-  String get gateGroup => 'number';
 
   static const String reasonCode = 'The disc holds one digit.';
   static const String reasonNumber = 'The number is five digits.';
 
   @override
-  PlateValidation judge(PlateEntry entry) {
-    if (!isDigitsOfLength(entry.group('code'), 1)) {
-      return const PlateValidation.invalid(reasonCode);
-    }
-    if (!isDigitsOfLength(entry.group('number'), 5)) {
-      return const PlateValidation.invalid(reasonNumber);
-    }
-    return const PlateValidation.valid();
-  }
+  List<PlateCheck> get checks => const <PlateCheck>[
+    PlateCheck('code', r'[0-9]{1}', reasonCode),
+    PlateCheck('number', r'[0-9]{5}', reasonNumber),
+  ];
 }

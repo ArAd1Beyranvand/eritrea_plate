@@ -8,7 +8,6 @@ import 'eritrea_colors.dart';
 abstract final class EritreaCountry {
   static const PlateCountry eritrea = PlateCountry(
     code: 'er',
-    captionLines: <String>[],
     panelColor: EritreaColors.flagBlue,
     panelTextColor: EritreaColors.white,
   );
