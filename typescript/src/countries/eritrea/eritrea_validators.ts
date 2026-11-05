@@ -1,4 +1,4 @@
-import { PlateCheck, RuledPlateValidator } from '../../core/validators/plate_validator';
+import { PlateCheck, RuledPlateValidator } from 'plate_core/core/validators/plate_validator';
 
 /** Judges `ER`, a digit in the disc and a five-digit number (`ER – 3  01860`).
  * Only one reference plate exists, so the rules are its shape. Reports, never
